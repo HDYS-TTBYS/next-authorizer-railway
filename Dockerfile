@@ -20,6 +20,6 @@ COPY --from=build /build/package.json /build/yarn.lock /build/package-lock.json 
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
 # node_modules以下がこのイメージにないので、next.jsのサーバーを動かすために必要
-RUN yarn install next
+RUN yarn add next
 
 CMD ["yarn", "start"]
