@@ -11,7 +11,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 # ビルド成果物のみをコピーしてやる
-COPY --from=build /build/package.json /build/yarn.lock /build/package-lock.json ./
+COPY --from=build /build/package.json /build/yarn.lock ./
 COPY --from=build /build/.next ./.next
 COPY --from=build /build/public ./public
 # node_modules以下がこのイメージにないので、next.jsのサーバーを動かすために必要
